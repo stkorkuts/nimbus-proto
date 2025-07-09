@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package nimbus_vault.user;
+
+// User entity
+message User {
+  string id = 1;
+  string username = 2;
+  string created_at = 3;
+}
+
+// User service requests/responses
+message RegisterUserRequest {
+  string username = 1;
+  string password = 2;
+  string device_fingerprint = 3;
+  bytes certificate_signing_request = 4;
+}
+
+message RegisterUserResponse {
+  User user = 1;
+  bytes signed_certificate = 2;
+}
