@@ -2,14 +2,17 @@ syntax = "proto3";
 
 package nimbus_vault.auth;
 
-// User entity
 message User {
   string id = 1;
   string username = 2;
   string encrypted_master_key = 3;
 }
 
-// User service requests/responses
+message Device {
+  string id = 1;
+  string name = 2;
+}
+
 message RegisterUserRequest {
   string username = 1;
   string password = 2;
@@ -21,14 +24,15 @@ message RegisterUserResponse {
   User user = 1;
 }
 
-message AuthenticateUserRequest {
+message RegisterDeviceRequest {
   string username = 1;
   string password = 2;
   string e2e_key_hash = 3;
   bytes certificate_sign_request = 4;
 }
 
-message AuthenticateUserResponse {
+message RegisterDeviceResponse {
   User user = 1;
-  bytes certificate_sign_response = 4;
+  Device device = 2;
+  bytes certificate_sign_response = 3;
 }
