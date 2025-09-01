@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package nimbus.auth.signup.v1;
+
+import "v1/auth/entities.proto";
+import "v1/entities/user.proto";
+
+enum SignUpErrorCodeProto {
+  UNDEFINED = 0;
+  WRONG_BODY_FORMAT = 1;
+  VALIDATION_ERROR = 2;
+  USER_ALREADY_EXISTS = 3;
+}
+
+message SignUpErrorProto {
+  SignUpErrorCodeProto code = 1;
+  map<string, string> metadata = 2;
+}
+
+message SignUpRequestProto {
+  string username = 1;
+  string password = 2;
+  string e2e_key_hash = 3;
+  string encrypted_master_key = 4;
+}
+
+message SignUpSuccessResponseProto {
+  nimbus.entities.user.v1.UserProto user = 1;
+  nimbus.auth.entities.v1.AccessTokenProto access_token = 2;
+}
+
+message SignUpResponseProto {
+  oneof result {
+    SignUpSuccessResponseProto success = 1;
+    SignUpErrorCodeProto error = 2;
+  }
+}

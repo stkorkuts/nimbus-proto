@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package nimbus.auth.refresh.v1;
+
+import "v1/auth/entities.proto";
+import "v1/entities/user.proto";
+
+enum RefreshErrorCodeProto {
+  UNDEFINED = 0;
+  VALIDATION_ERROR = 1;
+  TOKEN_NOT_FOUND = 2;
+  TOKEN_EXPIRED = 3;
+  TOKEN_REVOKED = 4;
+}
+
+message RefreshRequestProto {
+}
+
+message RefreshSuccessResponseProto {
+  nimbus.entities.user.v1.UserProto user = 1;
+  nimbus.auth.entities.v1.AccessTokenProto access_token = 2;
+}
+
+message RefreshResponseProto {
+  oneof result {
+    RefreshSuccessResponseProto success = 1;
+    RefreshErrorCodeProto error = 2;
+  }
+}

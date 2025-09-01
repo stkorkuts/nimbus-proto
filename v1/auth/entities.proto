@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package nimbus.auth.entities.v1;
+
+message AccessTokenProto {
+  string token = 1;
+  string expires_at_utc = 2;
+}
