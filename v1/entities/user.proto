@@ -4,6 +4,6 @@ package nimbus.entities.user.v1;
 
 message UserProto {
   string id = 1;
-  string username = 2;
+  string user_name = 2;
   string encrypted_master_key = 3;
 }
