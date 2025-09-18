@@ -10,20 +10,17 @@ enum SignInErrorCodeProto {
   WRONG_BODY_FORMAT = 1;
   VALIDATION_ERROR = 2;
   USER_NOT_FOUND = 3;
-  WRONG_E2E_KEY_HASH = 4;
-  WRONG_PASSWORD = 5;
+  WRONG_PASSWORD = 4;
 }
 
 message SignInRequestProto {
   string user_name = 1;
   string password = 2;
-  string e2e_key_hash = 3;
 }
 
 message SignInSuccessResponseProto {
   nimbus.entities.user.v1.UserProto user = 1;
-  string encrypted_master_key = 2;
-  nimbus.auth.entities.v1.AccessTokenProto access_token = 3;
+  nimbus.auth.entities.v1.AccessTokenProto access_token = 2;
 }
 
 message SignInResponseProto {
