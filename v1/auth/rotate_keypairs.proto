@@ -1,0 +1,17 @@
+enum RotateKeypairsErrorCodeProto {
+  UNDEFINED = 0;
+  UNAUTHORIZED = 1;
+}
+
+message RotateKeypairsRequestProto {
+}
+
+message RotateKeypairsSuccessResponseProto {
+}
+
+message RotateKeypairsResponseProto {
+  oneof result {
+    RotateKeypairsSuccessResponseProto success = 1;
+    RotateKeypairsErrorCodeProto error = 2;
+  }
+}
