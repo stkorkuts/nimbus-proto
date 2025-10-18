@@ -1,6 +1,7 @@
 enum RotateKeypairsErrorCodeProto {
   UNDEFINED = 0;
   UNAUTHORIZED = 1;
+  FORBIDDEN = 2;
 }
 
 message RotateKeypairsRequestProto {
