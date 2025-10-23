@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package nimbus.auth.get_public_key.v1;
+
+enum GetPublicKeyErrorCodeProto {
+    UNDEFINED = 0;
+    KEYPAIR_NOT_FOUND = 1;
+    INVALID_KEYPAIR_REQUESTED = 2;
+}
+
+message GetPublicKeyRequestProto {
+
+}
+
+message GetPublicKeySuccessResponseProto {
+    string public_key_pem = 1;
+}
+
+message GetPublicKeyResponseProto {
+    oneof result {
+        GetPublicKeySuccessResponseProto success = 1;
+        GetPublicKeyErrorCodeProto error = 2;
+    }
+}
