@@ -4,5 +4,5 @@ package nimbus.auth.entities.v1;
 
 message AccessTokenProto {
   string token = 1;
-  string expires_at_utc = 2;
+  int64 expires_at_unix_timestamp = 2;
 }
