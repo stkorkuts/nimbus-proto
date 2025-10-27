@@ -9,8 +9,7 @@ enum SignInErrorCodeProto {
   UNDEFINED = 0;
   WRONG_BODY_FORMAT = 1;
   VALIDATION_ERROR = 2;
-  USER_NOT_FOUND = 3;
-  WRONG_PASSWORD = 4;
+  WRONG_CREDENTIALS = 3;
 }
 
 message SignInRequestProto {

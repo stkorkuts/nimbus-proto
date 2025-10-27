@@ -8,9 +8,8 @@ import "v1/entities/user.proto";
 enum RefreshErrorCodeProto {
   UNDEFINED = 0;
   VALIDATION_ERROR = 1;
-  TOKEN_NOT_FOUND = 2;
-  TOKEN_EXPIRED = 3;
-  TOKEN_REVOKED = 4;
+  SESSION_NOT_FOUND = 2;
+  SESSION_INVALID = 3;
 }
 
 message RefreshRequestProto {
